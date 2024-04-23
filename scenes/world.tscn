@@ -1,6 +1,33 @@
-[gd_scene format=3 uid="uid://g7c6irwym6v3"]
+[gd_scene load_steps=7 format=3 uid="uid://g7c6irwym6v3"]
+
+[ext_resource type="Texture2D" uid="uid://8tkrjoneym1q" path="res://assets/dead_cell.png" id="1_l0d7q"]
+[ext_resource type="Texture2D" uid="uid://d1mowu4q1edhd" path="res://assets/living_cell.png" id="2_2ufd1"]
+[ext_resource type="Script" path="res://scenes/Cells.gd" id="3_pbhub"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lmeev"]
+resource_name = "dead_cell"
+texture = ExtResource("1_l0d7q")
+texture_region_size = Vector2i(1, 1)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k886k"]
+resource_name = "living_cell"
+texture = ExtResource("2_2ufd1")
+texture_region_size = Vector2i(1, 1)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_euk75"]
+tile_size = Vector2i(1, 1)
+sources/1 = SubResource("TileSetAtlasSource_k886k")
+sources/0 = SubResource("TileSetAtlasSource_lmeev")
 
 [node name="World" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Cells" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_euk75")
 format = 2
+script = ExtResource("3_pbhub")
+
+[node name="NextGeneration" type="Timer" parent="Cells"]
+wait_time = 0.1
+one_shot = true
