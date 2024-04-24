@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="A Complex Way of Living"
+config/tags=PackedStringArray("4.2.1", "ongoing", "original")
 run/main_scene="res://scenes/world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
