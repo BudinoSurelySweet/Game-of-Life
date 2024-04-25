@@ -1,40 +1,39 @@
-[gd_scene load_steps=8 format=3 uid="uid://g7c6irwym6v3"]
+[gd_scene load_steps=4 format=3 uid="uid://g7c6irwym6v3"]
 
-[ext_resource type="Texture2D" uid="uid://8tkrjoneym1q" path="res://assets/dead_cell.png" id="1_l0d7q"]
-[ext_resource type="Texture2D" uid="uid://d1mowu4q1edhd" path="res://assets/living_cell.png" id="2_2ufd1"]
-[ext_resource type="Script" path="res://scenes/Cells.gd" id="3_pbhub"]
+[ext_resource type="TileSet" uid="uid://dc6ei27iyjn67" path="res://resources/tilesets/cells_16x16.tres" id="2_oe450"]
+[ext_resource type="Script" path="res://scenes/Cells_16x16.gd" id="3_0ruo4"]
 [ext_resource type="Script" path="res://scenes/Camera2D.gd" id="4_oafe0"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lmeev"]
-resource_name = "dead_cell"
-texture = ExtResource("1_l0d7q")
-texture_region_size = Vector2i(1, 1)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k886k"]
-resource_name = "living_cell"
-texture = ExtResource("2_2ufd1")
-texture_region_size = Vector2i(1, 1)
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_euk75"]
-tile_size = Vector2i(1, 1)
-sources/1 = SubResource("TileSetAtlasSource_k886k")
-sources/0 = SubResource("TileSetAtlasSource_lmeev")
-
 [node name="World" type="Node2D"]
-metadata/_edit_vertical_guides_ = [320.0]
-metadata/_edit_horizontal_guides_ = [180.0]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(128, 72)
+script = ExtResource("4_oafe0")
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1280.0
+offset_top = -720.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+color = Color(0.133333, 0.12549, 0.203922, 1)
 
 [node name="Cells" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_euk75")
+tile_set = ExtResource("2_oe450")
 format = 2
-script = ExtResource("3_pbhub")
+layer_0/name = "Cells"
+layer_1/name = "Mouse Selection"
+layer_1/tile_data = PackedInt32Array()
+script = ExtResource("3_0ruo4")
 
 [node name="NextGeneration" type="Timer" parent="Cells"]
 wait_time = 0.1
 one_shot = true
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(16, 9)
-script = ExtResource("4_oafe0")

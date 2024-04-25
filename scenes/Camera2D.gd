@@ -2,7 +2,7 @@ extends Camera2D
 
 class_name PanningCamera2D
 
-const MIN_ZOOM: float = 0.5
+const MIN_ZOOM: float = 0.1
 const MAX_ZOOM: float = 2.5
 const ZOOM_RATE: float = 8.0
 const ZOOM_INCREMENT: float = 0.5
@@ -28,10 +28,12 @@ func _unhandled_input(event: InputEvent) -> void:
 					focus_position(get_global_mouse_position())
 		if event is InputEventMouseMotion:
 			if event.button_mask == MOUSE_BUTTON_MASK_MIDDLE:
-				if zoom < Vector2(1.5, 1.5):
-					position -= event.relative * zoom / 1
-				else:
+				if zoom > Vector2(1.5, 1.5):
 					position -= event.relative * zoom / 3
+				elif zoom > Vector2(0.5, 0.5):
+					position -= event.relative * zoom * 10
+				else:
+					position -= event.relative * zoom * 100
 
 
 func zoom_in() -> void:

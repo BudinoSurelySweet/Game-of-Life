@@ -1,0 +1,21 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://dpeb8eode2paq"]
+
+[ext_resource type="Texture2D" uid="uid://cddue7l131k1x" path="res://assets/others/dead_cell_8x8.png" id="1_2bkfj"]
+[ext_resource type="Texture2D" uid="uid://ctkvok3tqu3k4" path="res://assets/others/living_cell_8x8.png" id="2_l5kgs"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_imrqf"]
+resource_name = "dead_cell"
+texture = ExtResource("1_2bkfj")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e05wt"]
+resource_name = "white_cell"
+texture = ExtResource("2_l5kgs")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+
+[resource]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetAtlasSource_imrqf")
+sources/1 = SubResource("TileSetAtlasSource_e05wt")

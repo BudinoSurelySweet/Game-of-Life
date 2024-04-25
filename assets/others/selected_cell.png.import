@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1mowu4q1edhd"
-path="res://.godot/imported/living_cell.png-75ebd36678840870a88d130b3232ddc0.ctex"
+uid="uid://c1lkpenu15d8o"
+path="res://.godot/imported/selected_cell.png-7622a002261ade2b49e3010be40ded60.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/living_cell.png"
-dest_files=["res://.godot/imported/living_cell.png-75ebd36678840870a88d130b3232ddc0.ctex"]
+source_file="res://assets/others/selected_cell.png"
+dest_files=["res://.godot/imported/selected_cell.png-7622a002261ade2b49e3010be40ded60.ctex"]
 
 [params]
 
