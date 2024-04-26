@@ -35,5 +35,5 @@ layer_1/tile_data = PackedInt32Array()
 script = ExtResource("3_0ruo4")
 
 [node name="NextGeneration" type="Timer" parent="Cells"]
-wait_time = 0.1
+wait_time = 0.25
 one_shot = true
